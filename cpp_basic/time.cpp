@@ -6,11 +6,15 @@ int main()
 {
   
     int a[1000000];
-    int sum1 = 0, sum2 = 0;
+    int sum1 = 0, sum2 = 0,sum3 = 0;
      
     for(int i = 0; i!= 1000000; i++){
           a[i] = (i+1);
     } 
+
+
+
+
 
   
     // Get starting timepoint
@@ -31,11 +35,15 @@ int main()
          << duration.count() << " microseconds" << endl;
          
          
+         
+         
+         
+         
+         
+         
+         
     // Get starting timepoint for for each loop
     auto start1 = high_resolution_clock::now();
-  
-    // Call the function, here sort()
-               //sort(values.begin(), values.end());
      
     for(auto j:a){
           sum2 += j;
@@ -44,13 +52,34 @@ int main()
     // Get ending timepoint
     auto stop1 = high_resolution_clock::now();
     cout<<"Sum after for each loop is: "<<sum2<<endl;  
-    // Get duration. Substart timepoints to 
-    // get durarion. To cast it to proper unit
-    // use duration cast method
+    
     auto duration1 = duration_cast<microseconds>(stop1 - start1);
   
     cout << "Time taken by function: "
          << duration1.count() << " microseconds" << endl;
+  
+  
+  
+  
+  
+  
+  
+  // Get starting timepoint for while loop
+    auto start2 = high_resolution_clock::now();
+     
+     int j = 0;
+    while(j!=1000000){
+     sum3 += a[j];
+     j++;
+    }
+
+    // Get ending timepoint
+    auto stop2 = high_resolution_clock::now();
+    cout<<"Sum after while loop is: "<<sum3<<endl;  
+    auto duration2 = duration_cast<microseconds>(stop1 - start1);
+  
+    cout << "Time taken by function: "
+         << duration2.count() << " microseconds" << endl;
   
     return 0;
 }
